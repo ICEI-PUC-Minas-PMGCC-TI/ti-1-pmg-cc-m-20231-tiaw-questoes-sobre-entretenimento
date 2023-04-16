@@ -11,7 +11,7 @@ Grande parte dos jovens atuais sofrem com a dificuldade de descobrir seus hobbie
 ## Professores responsáveis
 
 * João Carlos Oliveira Caetano
-* Simone
+* Simone Assis Alves da Silva
 
 ## Instruções de utilização
 
