@@ -6,7 +6,6 @@ Grande parte dos jovens atuais sofrem com a dificuldade de descobrir seus hobbie
 
 * Arthur Couto Nogueira Oliveira
 * Enrico Jardim Cisotto
-* Paula Maria Alves de Oliveira
 
 ## Professores responsáveis
 
