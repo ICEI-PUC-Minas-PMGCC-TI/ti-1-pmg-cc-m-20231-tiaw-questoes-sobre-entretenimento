@@ -14,4 +14,4 @@ Grande parte dos jovens atuais sofrem com a dificuldade de descobrir seus hobbie
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+Para executar nosso programa, deverá realizar cadastro para que as funcionalidades de favoritos funcione, logo em seguida fazer login.
