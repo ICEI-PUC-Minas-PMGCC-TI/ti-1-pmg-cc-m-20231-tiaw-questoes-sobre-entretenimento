@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca de Recursos - Atividades Dentro de Casa</title>
+    <style>
+        html {
+            background-color: #E6F2F8;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .resource-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 50px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            width: 70%;
+            max-width: 900px;
+        }
+
+        .resource {
+            margin: 10px;
+            width: calc(33.33% - 20px); 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .resource img {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 50%; 
+        }
+
+        .resource-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .resource-description {
+            text-align: center;
+        }
+
+        .back-arrow {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            font-size: 48px;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .favorite-button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: gold;
+            cursor: pointer;
+        }
+
+        
+    </style>
+    <script>
+        function addToFavorites(resourceId) {
+            var favorites = localStorage.getItem('favorites_interno');
+            if (!favorites) {
+                favorites = [];
+            } else {
+                favorites = JSON.parse(favorites);
+            }
+
+            if (!favorites.includes(resourceId)) {
+                favorites.push(resourceId);
+                localStorage.setItem('favorites_interno', JSON.stringify(favorites));
+                alert('Conteúdo favoritado!');
+            } else {
+                alert('Esta atividade já está nos favoritos!');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Biblioteca de Recursos</h1>
+
+    <div class="resource-container">
+        <div class="resource">
+            <img src="mohamad hindi.jpg" alt="Imagem 1">
+            <h2 class="resource-title">Mohamad Hindi</h2>
+            <p class="resource-description">Cozinheiro, criador de conteúdo sobre Gastronomia e amante da boa comida. Aqui você encontra receitas, viagens, visitas a restaurantes, temporadas e séries especiais.</p>
+            <a href="https://www.youtube.com/@mohindi/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(1)">★</button>
+        </div>
+
+        <div class="resource">
+            <img src="Erick Jacquin.jpg" alt="Imagem 2">
+            <h2 class="resource-title">Erick Jacquin</h2>
+            <p class="resource-description">Seja bem-vindo ao canal, à cozinha e à vida do chef Erick Jacquin. Inscreva-se para não perder nenhum dos vídeos que vão mostrar as particularidades da personalidade, sua trajetória profissional, além de mostrar o preparo de receitas feitas pelo chef, tudo com seu jeito único e divertido.</p>
+            <a href="https://www.youtube.com/@ErickJacquin/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(2)">★</button>
+        </div>
+
+        <div class="resource">
+            <img src="Richard Rasmussen.jpg" alt="Imagem 3">
+            <h2 class="resource-title">Richard Rasmussen</h2>
+            <p class="resource-description">Olá, seja bem vindo ao canal do Biólogo Richard Rasmussen. Quem é Richard Rasmussen? Richard Rasmussen é um biólogo, aventureiro e conservacionista! Neste canal, Richard Rasmussen irá compartilhar com vocês conteúdos sobre conservação, biologia, Fauna e a Flora do mundo todo.</p>
+            <a href="https://www.youtube.com/@RichardRasmussenSelvagem/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(3)">★</button>
+        </div>
+
+        <div class="resource">
+            <img src="sabia.jpg" alt="Imagem 4">
+            <h2 class="resource-title">Você Sabia?</h2>
+            <p class="resource-description">O Canal Voce Sabia reune as melhores curiosidades, historias e fatos interessantes do mundo. Lukas Marques e Daniel Molo.</p>
+            <a href="https://www.youtube.com/@vcsabiavideos/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(4)">★</button>
+        </div>
+
+        <div class="resource">
+            <img src="coisa de nerd.jpg" alt="Imagem 5">
+            <h2 class="resource-title">Coisa de Nerd</h2>
+            <p class="resource-description">Somos Leon Martins e Nilce Moretto. Um casal que faz vídeos sobre games, tecnologia e ciência. Neste canal, você encontrar a Gambiarra A Gente Aceita (GAGA), nossa série com review de Gadgets e afins. Também tem a Hora de Por Café, nossa série de entretenimento que conta com a participação do público, e as Perguntas Sobre a Vida, a Verdade e o Universo (PSVVU), nossa série sobre ciências, na qual tentamos responder perguntas enviadas pela audiência do canal.</p>
+            <a href="https://www.youtube.com/@coisadenerd/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(5)">★</button>
+        </div>
+
+        <div class="resource">
+            <img src="Mrbeast.jpg" alt="Imagem 6">
+            <h2 class="resource-title">MrBeast</h2>
+            <p class="resource-description">Uma verdadeira montanha-russa de entretenimento, onde o carismático YouTuber MrBeast e sua equipe embarcam em desafios épicos, doações surpreendentes, experimentos sociais ousados e projetos de caridade que mudam vidas. Prepare-se para se surpreender, rir e se emocionar com as loucuras altruístas e generosas de MrBeast enquanto ele prova que ainda existem pessoas dispostas a fazer o bem e tornar o mundo um lugar melhor, um vídeo de cada vez.</p>
+            <a href="https://www.youtube.com/@MrBeast/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(6)">★</button>
+        </div>
+
+        <div class="resource">
+            <img src="Ei Nerd.jpg" alt="Imagem 7">
+            <h2 class="resource-title">Ei Nerd</h2>
+            <p class="resource-description">O Ei Nerd é o maior Canal de Cultura Pop do Brasil e está no ar desde 2013. Peter Jordan, criador e apresentador do Canal traz, diariamente, conteúdos informativos e de qualidade sobre tudo que esta relacionado ao mundo Nerd: animes, quadrinhos, filmes, series, games e mangás.</p>
+            <a href="https://www.youtube.com/@einerdtv/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(7)">★</button>
+        </div>
+
+        <div class="resource">
+            <img src="Ciencia Todo Dia.jpg" alt="Imagem 8">
+            <h2 class="resource-title">Ciência Todo Dia</h2>
+            <p class="resource-description">Um canal totalmente voltado para assuntos que podem ser abordados no cotidiano, mantendo seu cérebro sempre ativo!</p>
+            <a href="https://www.youtube.com/@CienciaTodoDia/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(8)">★</button>
+        </div>
+
+        <div class="resource">
+            <img src="Fiasco.jpg" alt="Imagem 9">
+            <h2 class="resource-title">Fiasco</h2>
+            <p class="resource-description">Eu falo sobre programaçao de um jeito que eu gostaria de escutar.</p>
+            <a href="https://www.youtube.com/@GrandeFiasco/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(9)">★</button>
+        </div>
+
+        <div class="resource">
+            <img src="Casimiro.jpg" alt="Imagem 10">
+            <h2 class="resource-title">Cortes do Casimito [OFICIAL]</h2>
+            <p class="resource-description">Cortes da live do Casimiro!</p>
+            <a href="https://www.youtube.com/@CortesdoCasimitoOFICIAL/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(10)">★</button>
+        </div>
+
+        <div class="resource">
+            <img src="Professor Noslen.jpg" alt="Imagem 11">
+            <h2 class="resource-title">Professor Noslen</h2>
+            <p class="resource-description">Canal voltado para o ensino de toda a Língua Portuguesa, com o intuito de facilitar a aprendizagem de maneira rápida e divertida! Maior canal de educação do Brasil e maior canal de ensino de LP do mundo!</p>
+            <a href="https://www.youtube.com/@ProfessorNoslen/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(11)">★</button>
+        </div>
+
+        <div class="resource">
+            <img src="Equaciona Com Paulo Pereira.jpg" alt="Imagem 12">
+            <h2 class="resource-title">Equaciona Com Paulo Pereira</h2>
+            <p class="resource-description">O carioca Paulo Pereira é mestre em matemática pelo Instituto Nacional de Matemática Pura e Aplicada - IMPA e professor de matemática de grandes instituições de ensino no Rio de Janeiro. Neste espaço,  ele disponibiliza videoaulas de matemática dos mais variados temas do ensino fundamental e principalmente do ensino médio, de uma maneira bastante acessível a todos, em vídeos curtos e super didáticos, indo direto ao ponto de possíveis dúvidas!</p>
+            <a href="https://www.youtube.com/@equacionamatematica/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(12)">★</button>
+        </div>
+
+        <div class="resource">
+            <img src="BRKsEDU.jpg" alt="Imagem 13">
+            <h2 class="resource-title">BRKsEDU</h2>
+            <p class="resource-description">Canal de gameplays e vlogs de games e entretenimento! (Ou seja: tenho o melhor trabalho do mundo!). Jogos favoritos: Life Is Strange, Shadow of the Colossus, The Last of Us, GTA 5, Final Fantasy VII, Final Fantasy IX, Super Mario 3, Super Mario World, Dead Rising 3, Uncharted, Bully, dentre outros! Amo games nos estilos plataforma 2D, plataforma 3D, metroidvania, suspense, terror, aventura, ação... no geral, campanhas single player! Dentre multiplayer, gosto muito de Call of Duty!</p>
+            <a href="https://www.youtube.com/@BRKsEDU/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(13)">★</button>
+        </div>
+
+        <div class="resource">
+            <img src="geo ilustrada.jpg" alt="Imagem 14">
+            <h2 class="resource-title">geo ilustrada</h2>
+            <p class="resource-description">O meu nome é Paulo Roberto Alves. Sou licenciado e bacharel em Geografia pela Universidade Estadual Paulista - Unesp de Presidente Prudente. Atualmente sou mestrando em Geografia pela mesma instituição, tendo a Cartografia Escolar como área de atuação. A Geo Ilustrada é um canal que nasceu com o objetivo de levar conteúdo geográfico de qualidade, de forma simples e objetiva, à toda a comunidade que se interessa pelo assunto. O nosso objetivo é unir Geografia à Arte, fazendo com que o aprendizado se torne algo prazeroso.</p>
+            <a href="https://www.youtube.com/@geoilustrada/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(14)">★</button>
+        </div>
+
+        <div class="resource">
+            <img src="PetrolHead.jpg" alt="Imagem 15">
+            <h2 class="resource-title">PetrolHead</h2>
+            <p class="resource-description">Drift, arrancada, projetos próprios, muitas viagens e o dia a dia de um apaixonado por carro! Ser PetrolHead é comprar, reparar, montar, aproveitar e ser feliz em cada momento com seu carro!! TMJ</p>
+            <a href="https://www.youtube.com/@Petrolheadoficial/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(15)">★</button>
+        </div>
+
+        <div class="resource">
+            <img src="Pri Leite Yoga.jpg" alt="Imagem 16">
+            <h2 class="resource-title">Pri Leite Yoga</h2>
+            <p class="resource-description">Retire os sapatos, receba o meu abraço e pode entrar: você está em casa! Aqui embarcamos juntos através da prática de yoga para expandir, curar e transformar. O canal possui uma riqueza enorme de aulas para iniciantes, para sair fora da zona de conforto e suar como power e flow, assim como aulas de estilo suave para auto-cuidado.</p>
+            <a href="https://www.youtube.com/@PriLeiteYoga/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(16)">★</button>
+        </div>
+
+        <div class="resource">
+            <img src="Growth TV.jpg" alt="Imagem 17">
+            <h2 class="resource-title">Growth TV</h2>
+            <p class="resource-description">Somos a growth, um canal destinado a pessoas que gostam e procuram se aventurar no mundo da musculação (bodybuilding).</p>
+            <a href="https://www.youtube.com/@GrowthTV/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(17)">★</button>
+        </div>
+
+        <div class="resource">
+            <img src="Vevo.jpg" alt="Imagem 18">
+            <h2 class="resource-title">Vevo</h2>
+            <p class="resource-description">Vevo no YouTube - Vídeos musicais oficiais, apresentações ao vivo, entrevistas e muito mais...</p>
+            <a href="https://www.youtube.com/@VEVO/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(18)">★</button>
+        </div>
+
+        <div class="resource">
+            <img src="Henrique Merloto.jpg" alt="Imagem 19">
+            <h2 class="resource-title">Henrique Merloto</h2>
+            <p class="resource-description">EU SOU O HENRIQUE MERLOTO. TENHO ME DEDICADO ÀS ARTES MARCIAIS DESDE 2010. NESSES ANOS DE TREINAMENTO JÁ PRATIQUEI E EXPERIMENTEI DIVERSOS ESTILOS DE LUTA. ACREDITO QUE UM VERDADEIRO ARTISTA MARCIAL TEM QUE SER COMPLETO FISICAMENTE, TECNICAMENTE E MENTALMENTE. NESSE CANAL VOCÊ PODE ACOMPANHAR UM POUCO DESSA MINHA TRAJETÓRIA E MEU ESTILO DE VIDA, COM TÉCNICAS DE COMBATE DOS MAIS VARIADOS ESTILOS MARCIAIS, ALÉM DE TREINOS DE DESENVOLVIMENTO FÍSICO E DICAS DE NUTRIÇÃO!</p>
+            <a href="https://www.youtube.com/@HenriqueMerloto/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(19)">★</button>
+        </div>
+
+        <div class="resource">
+            <img src="Thassyane Miranda.jpg" alt="Imagem 20">
+            <h2 class="resource-title">Thassyane Miranda</h2>
+            <p class="resource-description">Maquiagem de forma fácil! Vem aprender comigo: Me chamo Thassyane e aqui no meu canal você encontrará de tudo um pouco do mundo da beleza! Ensino várias maquiagens para vocês com tutoriais completos e vários passo a passo! Terão dicas valiosas! Desde pincéis de maquiagens que vocês precisam ter como iniciantes até produtos e dicas de como se maquiar! Ensinarei sobre skin care também! Todos os cuidados que devemos ter antes e depois da maquiagem! Ah, e você gosta de conteúdos de cabelo também? Aqui você ira encontrar!</p>
+            <a href="https://www.youtube.com/@thassyanemiranda/featured">Visitar</a>
+            <button class="favorite-button" onclick="addToFavorites(20)">★</button>
+        </div>
+    </div>
+
+    <div class="back-arrow" onclick="window.location.href='atividades_dentro_casa.html'">←</div>
+</body>
+</html>
+
+
+
+

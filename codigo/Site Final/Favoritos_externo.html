@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favoritos</title>
+  <style>
+    html {
+      background-color: #E6F2F8;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .favorites-container {
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      margin-top: 50px;
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      width: 70%;
+      max-width: 500px;
+    }
+
+    .favorite-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid black;
+    }
+
+    .favorite-item-title {
+      font-size: 24px;
+    }
+
+    .remove-button {
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: red;
+      cursor: pointer;
+    }
+
+    .back-arrow {
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 48px;
+      background-color: #E6F2F8;
+      color: #333;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Meus Favoritos</h1>
+
+  <div class="favorites-container" id="favoritesContainer"></div>
+
+  <div class="back-arrow" onclick="window.location.href='perfil.html'">←</div>
+
+  <script>
+    function removeFavorite(favoriteItem) {
+      const favoritesContainer = document.getElementById('favoritesContainer');
+      const favorites = JSON.parse(localStorage.getItem('favorites_externo')) || [];
+      const index = Array.from(favoritesContainer.children).indexOf(favoriteItem);
+
+      if (index > -1) {
+        favorites.splice(index, 1);
+        localStorage.setItem('favorites_externo', JSON.stringify(favorites));
+        favoritesContainer.removeChild(favoriteItem);
+      }
+    }
+
+    function displayFavorites() {
+      const favoritesContainer = document.getElementById('favoritesContainer');
+      const favorites = JSON.parse(localStorage.getItem('favorites_externo')) || [];
+
+      for (const favorite of favorites) {
+        const favoriteItem = createFavoriteItem(favorite.title);
+        favoritesContainer.appendChild(favoriteItem);
+      }
+    }
+
+    function createFavoriteItem(title) {
+      const favoriteItem = document.createElement('div');
+      favoriteItem.classList.add('favorite-item');
+
+      const titleElement = document.createElement('h2');
+      titleElement.classList.add('favorite-item-title');
+      titleElement.textContent = title;
+
+      const removeButton = document.createElement('button');
+      removeButton.classList.add('remove-button');
+      removeButton.innerHTML = '&times;';
+      removeButton.addEventListener('click', () => removeFavorite(favoriteItem));
+
+      favoriteItem.appendChild(titleElement);
+      favoriteItem.appendChild(removeButton);
+
+      return favoriteItem;
+    }
+
+    displayFavorites();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário</title>
+    <style>
+        html {
+            background-color: #E6F2F8;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            width: 70%;
+            max-width: 400px;
+        }
+
+        .profile-info {
+            margin-bottom: 20px;
+        }
+
+        .profile-info p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .profile-button {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #000000;
+            border: none;
+            cursor: pointer;
+        }
+
+        .home-button {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #000000;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .favorite-button {
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .favorite-button:hover {
+            background-color: #45a049;
+        }
+
+        .logout-button {
+            margin-top: 20px;
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .logout-button:hover {
+            background-color: #d32f2f;
+        }
+
+        .profile-emoji {
+            font-size: 40px;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #000000;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-container {
+        position: fixed;
+        bottom: 5px;
+        right: 40px;
+        z-index: 9999;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        }
+
+        .logo-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        }
+
+        .absolute-container {
+        position: fixed;
+        bottom: 15px;
+        right: 160px;
+        z-index: 9999;
+        }
+
+        .footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 13vh; 
+        background-color: white;
+        border-top: 2px solid black;
+        }
+    </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            var perfilJSON = localStorage.getItem('perfil');
+            if (perfilJSON) {
+                var perfil = JSON.parse(perfilJSON);
+                document.getElementById('nome').textContent = perfil.nome;
+                document.getElementById('email').textContent = perfil.email;
+            }
+        });
+    </script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            var perfilJSON = localStorage.getItem('perfil');
+            if (perfilJSON) {
+                var perfil = JSON.parse(perfilJSON);
+                document.getElementById('nome').textContent = perfil.nome;
+                document.getElementById('email').textContent = perfil.email;
+            }
+        });
+
+        function goToFavorites() {
+            window.location.href = 'Favoritos_externo.html';
+        }
+
+        function goToInternalFavorites() {
+            window.location.href = 'Favoritos_interno.html';
+        }
+
+        function logout() {
+            localStorage.removeItem('perfil');
+            window.location.href = 'Index.html';
+        }
+    </script>
+</head>
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Perfil do Usuário</h1>
+
+    <div class="profile-container">
+        <div class="profile-emoji">👤</div>
+        <div class="profile-info">
+            <p>Nome: <span id="nome"></span></p>
+            <p>Email: <span id="email"></span></p>
+        </div>
+
+        <button class="profile-button" onclick="window.location.href='Avaliacao.html'">☰</button>
+        <button class="home-button" onclick="window.location.href='TelaPrincipal.html'">🏠</button>
+        <button class="favorite-button" onclick="goToFavorites()">Locais Favoritos</button>
+        <button class="favorite-button" onclick="goToInternalFavorites()">Conteúdos Favoritos</button>
+        <button class="logout-button" onclick="logout()">Sair</button>
+    </div>
+
+    <div class="logo-container">
+        <img src="Absolute SK.png" alt="Logo do Meu Site">
+    </div>
+    <div class="absolute-container">
+        <h1>Absolute SK</h1>
+    </div>
+    <div class="footer"></div>
+</body>
+</html>
+

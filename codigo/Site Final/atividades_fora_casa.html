@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividades fora de casa</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        .block-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .block {
+            width: 300px;
+            padding: 20px;
+            margin: 10px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .block h2 {
+            font-size: 24px;
+        }
+
+        .profile-button {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #000000;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .home-button {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #000000;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-container {
+        position: fixed;
+        bottom: 5px;
+        right: 40px;
+        z-index: 9999;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        }
+
+        .logo-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        }
+
+        .absolute-container {
+        position: fixed;
+        bottom: 15px;
+        right: 160px;
+        z-index: 9999;
+        }
+
+        .footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 13vh; 
+        background-color: white;
+        border-top: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Atividades fora de casa</h1>
+
+    <div class="block-container">
+        <div class="block">
+            <h2>Lista sobre os assuntos desejados</h2>
+            <p>Confira uma lista com diversos assuntos para se aprofundar e explorar fora de casa.</p>
+            <a href="lista_ranqueada_fora.html">Acessar</a>
+        </div>
+
+        <div class="block">
+            <h2>Atividades no ambiente externo</h2>
+            <p>Descubra atividades para desfrutar ao ar livre e aproveitar o ambiente externo.</p>
+            <a href="atividades_externo.html">Acessar</a>
+        </div>
+    </div>
+
+    <button class="profile-button" onclick="window.location.href='perfil.html'">👤</button>
+    <button class="home-button" onclick="window.location.href='TelaPrincipal.html'">🏠</button>
+
+    <div class="logo-container">
+        <img src="Absolute SK.png" alt="Logo do Meu Site">
+    </div>
+    <div class="absolute-container">
+        <h1>Absolute SK</h1>
+    </div>
+    <div class="footer"></div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interesses</title>
+    <style>
+        body {
+            background-color: #f0f8ff; 
+            text-align: center;
+        }
+
+        .category {
+            width: 200px;
+            height: 80px;
+            background-color: #ffffff; 
+            border: 1px solid #000000; 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .selected {
+            background-color: rgba(0, 128, 0, 0.6);
+        }
+
+        #submit-button {
+            width: 200px;
+            height: 80px;
+            background-color: #ffffff; 
+            border: 1px solid #000000; 
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            line-height: 80px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interesses</h1>
+    <h2>Escolha o que deseja ver no seu feed principal:</h2>
+    <div class="category" onclick="selectInterest(this, 'Em Alta')">
+        Em Alta 
+        <span class="emoji" role="img" aria-label="Em Alta">🔥</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Jogos')">
+        Jogos
+        <span class="emoji" role="img" aria-label="Jogos">🎮</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Humor e Memes')">
+        Humor e Memes
+        <span class="emoji" role="img" aria-label="Humor e Memes">😂</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Esportes')">
+        Esportes
+        <span class="emoji" role="img" aria-label="Esportes">⚽️</span>
+    </div>
+    <br>
+    <div class="category" onclick="selectInterest(this, 'Família e Relacionamentos')">
+        Família e Relacionamentos
+        <span class="emoji" role="img" aria-label="Família e Relacionamentos">👪</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Ciência')">
+        Ciência
+        <span class="emoji" role="img" aria-label="Ciência">🔬</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Instrumentos')">
+        Instrumentos
+        <span class="emoji" role="img" aria-label="Instrumentos">🎵</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Finanças')">
+        Finanças
+        <span class="emoji" role="img" aria-label="Finanças">💰</span>
+    </div>
+    <br>
+    <div class="category" onclick="selectInterest(this, 'Filmes')">
+        Filmes
+        <span class="emoji" role="img" aria-label="Filmes">🎥</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Culinária')">
+        Culinária
+        <span class="emoji" role="img" aria-label="Culinária">🍳</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Artes Marciais')">
+        Artes Marciais
+        <span class="emoji" role="img" aria-label="Artes Marciais">🥋</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Músicas')">
+        Músicas
+        <span class="emoji" role="img" aria-label="Músicas">🎶</span>
+    </div>
+    <br>
+    <div class="category" onclick="selectInterest(this, 'Livros')">
+        Livros
+        <span class="emoji" role="img" aria-label="Livros">📚</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Tatuagens')">
+        Tatuagens
+        <span class="emoji" role="img" aria-label="Tatuagens">🎨</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Tecnologia')">
+        Tecnologia
+        <span class="emoji" role="img" aria-label="Tecnologia">📱</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Animes e Mangás')">
+        Animes e Mangás
+        <span class="emoji" role="img" aria-label="Animes e Mangás">🎌</span>
+    </div>
+    <br>
+    <div class="category" onclick="selectInterest(this, 'Programação')">
+        Programação
+        <span class="emoji" role="img" aria-label="Programação">💻</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Séries')">
+        Séries
+        <span class="emoji" role="img" aria-label="Séries">📺</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Celebridades')">
+        Celebridades
+        <span class="emoji" role="img" aria-label="Celebridades">🌟</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Cerâmica')">
+        Cerâmica
+        <span class="emoji" role="img" aria-label="Cerâmica">🏺</span>
+    </div>
+    <br>
+    <div class="category" onclick="selectInterest(this, 'Parques')">
+        Parques
+        <span class="emoji" role="img" aria-label="Parques">🌳</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Museus')">
+        Museus
+        <span class="emoji" role="img" aria-label="Museus">🏛️</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Artes')">
+        Artes
+        <span class="emoji" role="img" aria-label="Artes">🖌️</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Turismo')">
+        Turismo
+        <span class="emoji" role="img" aria-label="Turismo">✈️</span>
+    </div>
+    <br>
+    <div class="category" onclick="selectInterest(this, 'Restaurantes')">
+        Restaurantes
+        <span class="emoji" role="img" aria-label="Restaurantes">🍽️</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Baladas e boates')">
+        Baladas e boates
+        <span class="emoji" role="img" aria-label="Baladas e boates">🎉</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Exposições')">
+        Exposições
+        <span class="emoji" role="img" aria-label="Exposições">🖼️</span>
+    </div>
+    <div class="category" onclick="selectInterest(this, 'Notícias')">
+        Notícias
+        <span class="emoji" role="img" aria-label="Notícias">📰</span>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <div id="submit-button" onclick="submitInterests()">Enviar</div>
+
+    <script>
+        function selectInterest(element, category) {
+            element.classList.toggle('selected');
+        }
+    </script>
+
+<script src="Validacao.js"></script> 
+
+</body>
+</html>

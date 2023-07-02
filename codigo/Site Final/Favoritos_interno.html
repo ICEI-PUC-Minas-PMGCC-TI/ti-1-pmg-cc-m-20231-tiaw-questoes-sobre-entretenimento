@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Favoritos</title>
+    <style>
+        html {
+            background-color: #E6F2F8;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .favorite-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 50px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            width: 70%;
+            max-width: 900px;
+        }
+
+        .favorite {
+            margin: 10px;
+            width: calc(50% - 20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .favorite-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .favorite-description {
+            text-align: center;
+        }
+
+        .remove-button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: red;
+            cursor: pointer;
+        }
+
+        .home-button {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #000000;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-arrow {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            font-size: 48px;
+            color: #000;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function removeFromFavorites(resourceId) {
+            var favorites = localStorage.getItem('favorites_interno');
+            if (favorites) {
+                favorites = JSON.parse(favorites);
+                var index = favorites.indexOf(resourceId);
+                if (index !== -1) {
+                    favorites.splice(index, 1);
+                    localStorage.setItem('favorites_interno', JSON.stringify(favorites));
+                    showFavorites();
+                }
+            }
+        }
+    
+        function showFavorites() {
+            var favoritesContainer = document.querySelector('.favorite-container');
+            favoritesContainer.innerHTML = '';
+    
+            var favorites = localStorage.getItem('favorites_interno');
+            if (favorites) {
+                favorites = JSON.parse(favorites);
+    
+                favorites.forEach(function(resourceId) {
+                    var resource = getResources()[resourceId];
+    
+                    var favorite = document.createElement('div');
+                    favorite.classList.add('favorite');
+    
+                    var title = document.createElement('h2');
+                    title.classList.add('favorite-title');
+                    title.textContent = resource.title;
+                    favorite.appendChild(title);
+    
+                    var description = document.createElement('p');
+                    description.classList.add('favorite-description');
+                    description.textContent = resource.description;
+                    favorite.appendChild(description);
+    
+                    var link = document.createElement('a');
+                    link.href = resource.link;
+                    link.textContent = 'Acessar Recurso';
+                    favorite.appendChild(link);
+    
+                    var removeButton = document.createElement('button');
+                    removeButton.classList.add('remove-button');
+                    removeButton.innerHTML = '&times;';
+                    removeButton.addEventListener('click', function() {
+                        removeFromFavorites(resourceId);
+                    });
+                    favorite.appendChild(removeButton);
+    
+                    favoritesContainer.appendChild(favorite);
+                });
+            }
+        }
+    
+        function getResources() {
+            return {
+                1: {
+                    title: 'Mohamad Hindi',
+                    description: 'Cozinheiro, criador de conteúdo sobre Gastronomia e amante da boa comida. Aqui você encontra receitas, viagens, visitas a restaurantes, temporadas e séries especiais.',
+                    link: 'https://www.youtube.com/@mohindi/featured'
+                },
+                2: {
+                    title: 'Erick Jacquin',
+                    description: 'Seja bem-vindo ao canal, à cozinha e à vida do chef Erick Jacquin. Inscreva-se para não perder nenhum dos vídeos que vão mostrar as particularidades da personalidade, sua trajetória profissional, além de mostrar o preparo de receitas feitas pelo chef, tudo com seu jeito único e divertido.',
+                    link: 'https://www.youtube.com/@ErickJacquin/featured'
+                },
+                3: {
+                    title: 'Richard Rasmussen',
+                    description: 'Olá, seja bem vindo ao canal do Biólogo Richard Rasmussen. Quem é Richard Rasmussen? Richard Rasmussen é um biólogo, aventureiro e conservacionista! Neste canal, Richard Rasmussen irá compartilhar com vocês conteúdos sobre conservação, biologia, Fauna e a Flora do mundo todo.',
+                    link: 'https://www.youtube.com/@RichardRasmussenSelvagem/featured'
+                },
+                4: {
+                    title: 'Você Sabia?',
+                    description: 'O Canal Voce Sabia reune as melhores curiosidades, historias e fatos interessantes do mundo. Lukas Marques e Daniel Molo.',
+                    link: 'https://www.youtube.com/@vcsabiavideos/featured'
+                },
+                5: {
+                    title: 'Coisa de Nerd',
+                    description: 'Somos Leon Martins e Nilce Moretto. Um casal que faz vídeos sobre games, tecnologia e ciência. Neste canal, você encontrar a Gambiarra A Gente Aceita (GAGA), nossa série com review de Gadgets e afins. Também tem a Hora de Por Café, nossa série de entretenimento que conta com a participação do público, e as Perguntas Sobre a Vida, a Verdade e o Universo (PSVVU), nossa série sobre ciências, na qual tentamos responder perguntas enviadas pela audiência do canal.',
+                    link: 'https://www.youtube.com/@coisadenerd/featured'
+                },
+                6: {
+                    title: 'MrBeast',
+                    description: 'Uma verdadeira montanha-russa de entretenimento, onde o carismático YouTuber MrBeast e sua equipe embarcam em desafios épicos, doações surpreendentes, experimentos sociais ousados e projetos de caridade que mudam vidas. Prepare-se para se surpreender, rir e se emocionar com as loucuras altruístas e generosas de MrBeast enquanto ele prova que ainda existem pessoas dispostas a fazer o bem e tornar o mundo um lugar melhor, um vídeo de cada vez.',
+                    link: 'https://www.youtube.com/@MrBeast/featured'
+                },
+                7: {
+                    title: 'Ei Nerd',
+                    description: 'O Ei Nerd é o maior Canal de Cultura Pop do Brasil e está no ar desde 2013. Peter Jordan, criador e apresentador do Canal traz, diariamente, conteúdos informativos e de qualidade sobre tudo que esta relacionado ao mundo Nerd: animes, quadrinhos, filmes, series, games e mangás.',
+                    link: 'https://www.youtube.com/@einerdtv/featured'
+                },
+                8: {
+                    title: 'Ciência Todo Dia',
+                    description: 'Um canal totalmente voltado para assuntos que podem ser abordados no cotidiano, mantendo seu cérebro sempre ativo!',
+                    link: 'https://www.youtube.com/@CienciaTodoDia/featured'
+                },
+                9: {
+                    title: 'Fiasco',
+                    description: 'Eu falo sobre programaçao de um jeito que eu gostaria de escutar.',
+                    link: 'https://www.youtube.com/@GrandeFiasco/featured'
+                },
+                10: {
+                    title: 'Cortes do Casimito [OFICIAL]',
+                    description: 'Cortes da live do Casimiro!',
+                    link: 'https://www.youtube.com/@CortesdoCasimitoOFICIAL/featured'
+                },
+                11: {
+                    title: 'Professor Noslen',
+                    description: 'Canal voltado para o ensino de toda a Língua Portuguesa, com o intuito de facilitar a aprendizagem de maneira rápida e divertida! Maior canal de educação do Brasil e maior canal de ensino de LP do mundo!',
+                    link: 'https://www.youtube.com/@ProfessorNoslen/featured'
+                },
+                12: {
+                    title: 'Equaciona Com Paulo Pereira',
+                    description: 'O carioca Paulo Pereira é mestre em matemática pelo Instituto Nacional de Matemática Pura e Aplicada - IMPA e professor de matemática de grandes instituições de ensino no Rio de Janeiro. Neste espaço,  ele disponibiliza videoaulas de matemática dos mais variados temas do ensino fundamental e principalmente do ensino médio, de uma maneira bastante acessível a todos, em vídeos curtos e super didáticos, indo direto ao ponto de possíveis dúvidas!',
+                    link: 'https://www.youtube.com/@equacionamatematica/featured'
+                },
+                13: {
+                    title: 'BRKsEDU',
+                    description: 'Canal de gameplays e vlogs de games e entretenimento! (Ou seja: tenho o melhor trabalho do mundo!). Jogos favoritos: Life Is Strange, Shadow of the Colossus, The Last of Us, GTA 5, Final Fantasy VII, Final Fantasy IX, Super Mario 3, Super Mario World, Dead Rising 3, Uncharted, Bully, dentre outros! Amo games nos estilos plataforma 2D, plataforma 3D, metroidvania, suspense, terror, aventura, ação... no geral, campanhas single player! Dentre multiplayer, gosto muito de Call of Duty!',
+                    link: 'https://www.youtube.com/@BRKsEDU/featured'
+                },
+                14: {
+                    title: 'geo ilustrada',
+                    description: 'O meu nome é Paulo Roberto Alves. Sou licenciado e bacharel em Geografia pela Universidade Estadual Paulista - Unesp de Presidente Prudente. Atualmente sou mestrando em Geografia pela mesma instituição, tendo a Cartografia Escolar como área de atuação. A Geo Ilustrada é um canal que nasceu com o objetivo de levar conteúdo geográfico de qualidade, de forma simples e objetiva, à toda a comunidade que se interessa pelo assunto. O nosso objetivo é unir Geografia à Arte, fazendo com que o aprendizado se torne algo prazeroso.',
+                    link: 'https://www.youtube.com/@geoilustrada/featured'
+                },
+                15: {
+                    title: 'PetrolHead',
+                    description: 'Drift, arrancada, projetos próprios, muitas viagens e o dia a dia de um apaixonado por carro! Ser PetrolHead é comprar, reparar, montar, aproveitar e ser feliz em cada momento com seu carro!! TMJ',
+                    link: 'https://www.youtube.com/@Petrolheadoficial/featured'
+                },
+                16: {
+                    title: 'Pri Leite Yoga',
+                    description: 'Retire os sapatos, receba o meu abraço e pode entrar: você está em casa! Aqui embarcamos juntos através da prática de yoga para expandir, curar e transformar. O canal possui uma riqueza enorme de aulas para iniciantes, para sair fora da zona de conforto e suar como power e flow, assim como aulas de estilo suave para auto-cuidado.',
+                    link: 'https://www.youtube.com/@PriLeiteYoga/featured'
+                },
+                17: {
+                    title: 'Growth TV',
+                    description: 'Somos a growth, um canal destinado a pessoas que gostam e procuram se aventurar no mundo da musculação (bodybuilding).',
+                    link: 'https://www.youtube.com/@GrowthTV/featured'
+                },
+                18: {
+                    title: 'Vevo',
+                    description: 'Vevo no YouTube - Vídeos musicais oficiais, apresentações ao vivo, entrevistas e muito mais...',
+                    link: 'https://www.youtube.com/@VEVO/featured'
+                },
+                19: {
+                    title: 'Henrique Merloto',
+                    description: 'EU SOU O HENRIQUE MERLOTO. TENHO ME DEDICADO ÀS ARTES MARCIAIS DESDE 2010. NESSES ANOS DE TREINAMENTO JÁ PRATIQUEI E EXPERIMENTEI DIVERSOS ESTILOS DE LUTA. ACREDITO QUE UM VERDADEIRO ARTISTA MARCIAL TEM QUE SER COMPLETO FISICAMENTE, TECNICAMENTE E MENTALMENTE. NESSE CANAL VOCÊ PODE ACOMPANHAR UM POUCO DESSA MINHA TRAJETÓRIA E MEU ESTILO DE VIDA, COM TÉCNICAS DE COMBATE DOS MAIS VARIADOS ESTILOS MARCIAIS, ALÉM DE TREINOS DE DESENVOLVIMENTO FÍSICO E DICAS DE NUTRIÇÃO!',
+                    link: 'https://www.youtube.com/@HenriqueMerloto/featured'
+                },
+                20: {
+                    title: 'Thassyane Miranda',
+                    description: 'Maquiagem de forma fácil! Vem aprender comigo: Me chamo Thassyane e aqui no meu canal você encontrará de tudo um pouco do mundo da beleza! Ensino várias maquiagens para vocês com tutoriais completos e vários passo a passo! Terão dicas valiosas! Desde pincéis de maquiagens que vocês precisam ter como iniciantes até produtos e dicas de como se maquiar! Ensinarei sobre skin care também! Todos os cuidados que devemos ter antes e depois da maquiagem! Ah, e você gosta de conteúdos de cabelo também? Aqui você ira encontrar!',
+                    link: 'https://www.youtube.com/@thassyanemiranda/featured'
+                }    
+            };
+        }
+    
+        window.addEventListener('DOMContentLoaded', function() {
+            showFavorites();
+        });
+    </script>        
+</head>
+<body>
+    <h1>Meus Favoritos</h1>
+
+    <div class="favorite-container">
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 1</h2>
+            <p class="favorite-description">Descrição do Recurso 1</p>
+            <a href="link_do_recurso1.html">Acessar Recurso 1</a>
+            <button class="remove-button" onclick="removeFromFavorites(1)">Remover</button>
+        </div>
+
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 2</h2>
+            <p class="favorite-description">Descrição do Recurso 2</p>
+            <a href="link_do_recurso2.html">Acessar Recurso 2</a>
+            <button class="remove-button" onclick="removeFromFavorites(2)">Remover</button>
+        </div>
+
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 3</h2>
+            <p class="favorite-description">Descrição do Recurso 3</p>
+            <a href="link_do_recurso3.html">Acessar Recurso 3</a>
+            <button class="remove-button" onclick="removeFromFavorites(3)">Remover</button>
+        </div>
+
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 4</h2>
+            <p class="favorite-description">Descrição do Recurso 4</p>
+            <a href="link_do_recurso4.html">Acessar Recurso 4</a>
+            <button class="remove-button" onclick="removeFromFavorites(4)">Remover</button>
+        </div>
+
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 5</h2>
+            <p class="favorite-description">Descrição do Recurso 5</p>
+            <a href="link_do_recurso5.html">Acessar Recurso 5</a>
+            <button class="remove-button" onclick="removeFromFavorites(5)">Remover</button>
+        </div>
+
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 6</h2>
+            <p class="favorite-description">Descrição do Recurso 6</p>
+            <a href="link_do_recurso6.html">Acessar Recurso 6</a>
+            <button class="remove-button" onclick="removeFromFavorites(6)">Remover</button>
+        </div>
+
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 7</h2>
+            <p class="favorite-description">Descrição do Recurso 7</p>
+            <a href="link_do_recurso7.html">Acessar Recurso 7</a>
+            <button class="remove-button" onclick="removeFromFavorites(7)">Remover</button>
+        </div>
+
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 8</h2>
+            <p class="favorite-description">Descrição do Recurso 8</p>
+            <a href="link_do_recurso8.html">Acessar Recurso 8</a>
+            <button class="remove-button" onclick="removeFromFavorites(8)">Remover</button>
+        </div>
+
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 9</h2>
+            <p class="favorite-description">Descrição do Recurso 9</p>
+            <a href="link_do_recurso9.html">Acessar Recurso 9</a>
+            <button class="remove-button" onclick="removeFromFavorites(9)">Remover</button>
+        </div>
+
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 10</h2>
+            <p class="favorite-description">Descrição do Recurso 10</p>
+            <a href="link_do_recurso10.html">Acessar Recurso 10</a>
+            <button class="remove-button" onclick="removeFromFavorites(10)">Remover</button>
+        </div>
+
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 11</h2>
+            <p class="favorite-description">Descrição do Recurso 11</p>
+            <a href="link_do_recurso11.html">Acessar Recurso 11</a>
+            <button class="remove-button" onclick="removeFromFavorites(11)">Remover</button>
+        </div>
+
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 12</h2>
+            <p class="favorite-description">Descrição do Recurso 12</p>
+            <a href="link_do_recurso12.html">Acessar Recurso 12</a>
+            <button class="remove-button" onclick="removeFromFavorites(12)">Remover</button>
+        </div>
+
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 13</h2>
+            <p class="favorite-description">Descrição do Recurso 13</p>
+            <a href="link_do_recurso13.html">Acessar Recurso 13</a>
+            <button class="remove-button" onclick="removeFromFavorites(13)">Remover</button>
+        </div>
+
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 14</h2>
+            <p class="favorite-description">Descrição do Recurso 14</p>
+            <a href="link_do_recurso14.html">Acessar Recurso 14</a>
+            <button class="remove-button" onclick="removeFromFavorites(14)">Remover</button>
+        </div>
+
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 15</h2>
+            <p class="favorite-description">Descrição do Recurso 15</p>
+            <a href="link_do_recurso15.html">Acessar Recurso 15</a>
+            <button class="remove-button" onclick="removeFromFavorites(15)">Remover</button>
+        </div>
+
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 16</h2>
+            <p class="favorite-description">Descrição do Recurso 16</p>
+            <a href="link_do_recurso16.html">Acessar Recurso 16</a>
+            <button class="remove-button" onclick="removeFromFavorites(16)">Remover</button>
+        </div>
+
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 17</h2>
+            <p class="favorite-description">Descrição do Recurso 17</p>
+            <a href="link_do_recurso17.html">Acessar Recurso 17</a>
+            <button class="remove-button" onclick="removeFromFavorites(17)">Remover</button>
+        </div>
+
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 18</h2>
+            <p class="favorite-description">Descrição do Recurso 18</p>
+            <a href="link_do_recurso18.html">Acessar Recurso 18</a>
+            <button class="remove-button" onclick="removeFromFavorites(18)">Remover</button>
+        </div>
+
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 19</h2>
+            <p class="favorite-description">Descrição do Recurso 19</p>
+            <a href="link_do_recurso19.html">Acessar Recurso 19</a>
+            <button class="remove-button" onclick="removeFromFavorites(19)">Remover</button>
+        </div>
+
+        <div class="favorite">
+            <h2 class="favorite-title">Título do Recurso 20</h2>
+            <p class="favorite-description">Descrição do Recurso 20</p>
+            <a href="link_do_recurso20.html">Acessar Recurso 20</a>
+            <button class="remove-button" onclick="removeFromFavorites(20)">Remover</button>
+        </div>
+    </div>
+
+    <div class="back-arrow" onclick="window.location.href='perfil.html'">←</div>
+    <button class="home-button" onclick="window.location.href='TelaPrincipal.html'">🏠</button>
+</body>
+</html>
+
+

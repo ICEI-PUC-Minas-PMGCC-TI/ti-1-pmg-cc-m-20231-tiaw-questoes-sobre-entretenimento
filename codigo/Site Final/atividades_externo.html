@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividades Externas</title>
+  <style>
+    html {
+      background-color: #E6F2F8;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .activities-container {
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      margin-top: 50px;
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      width: 70%;
+      max-width: 500px;
+    }
+
+    .activity-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid black;
+    }
+
+    .activity-item-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .activity-item-image {
+      max-width: 200px;
+      height: auto;
+      margin-bottom: 10px;
+      border-radius: 50%; 
+    }
+
+    .activity-item-description {
+      text-align: center;
+    }
+
+    .activity-item-address {
+      font-size: 16px;
+      color: #888;
+      margin-top: 10px;
+    }
+
+    .add-favorite-button {
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: gold;
+      cursor: pointer;
+    }
+
+    .back-arrow {
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 48px;
+      background-color: #E6F2F8;
+      color: #333;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Atividades Externas</h1>
+
+  <div class="activities-container">
+    <div class="activity-item">
+      <img class="activity-item-image" src="clube chalezinho.png" alt="Imagem da atividade">
+      <h2 class="activity-item-title">Clube Chalezinho</h2>
+      <p class="activity-item-description">Casa noturna espaçosa com lounges intimistas e contemporâneos, shows e gastronomia gourmet.</p>
+      <p class="activity-item-address">Av. Professor Mário Werneck, 530 - Estoril, Belo Horizonte</p>
+      <button class="add-favorite-button" onclick="addFavorite('Clube Chalezinho')">★</button>
+    </div>
+
+    <div class="activity-item">
+      <img class="activity-item-image" src="Praça do Papa.jpg" alt="Imagem da atividade">
+      <h2 class="activity-item-title">Praça do Papa</h2>
+      <p class="activity-item-description">A Praça do Papa é um ponto turístico localizado em Belo Horizonte, Minas Gerais, Brasil. Ela é assim chamada em homenagem ao Papa João Paulo II, que visitou a cidade em 1980. A praça fica no alto de uma colina, o que permite uma vista panorâmica da cidade. A Praça do Papa tem uma área verde ampla e bem cuidada, com jardins, árvores e uma fonte luminosa. Além disso, há também uma grande estrutura de concreto, que abriga uma área de eventos e um mirante, que oferece uma vista privilegiada da cidade de Belo Horizonte.</p>
+      <p class="activity-item-address">Av. Agulhas Negras - Mangabeiras, Belo Horizonte</p>
+      <button class="add-favorite-button" onclick="addFavorite('Praça do Papa')">★</button>
+    </div>
+
+    <div class="activity-item">
+      <img class="activity-item-image" src="Palácio das Artes.jpg" alt="Imagem da atividade">
+      <h2 class="activity-item-title">Palácio das Artes</h2>
+      <p class="activity-item-description">O Palácio das Artes, vinculado à Fundação Clóvis Salgado, é o maior centro de produção, formação e difusão cultural de Minas Gerais e um dos maiores da América Latina.</p>
+      <p class="activity-item-address">Av. Afonso Pena, 1537 - Centro, Belo Horizonte</p>
+      <button class="add-favorite-button" onclick="addFavorite('Palácio das Artes')">★</button>
+    </div>
+
+    <div class="activity-item">
+      <img class="activity-item-image" src="butiquim 69 - Unidade I.jpeg" alt="Imagem da atividade">
+      <h2 class="activity-item-title">butiquim 69 - Unidade I</h2>
+      <p class="activity-item-description">Um refúgio acolhedor com decoração rústica, oferecendo uma ampla seleção de bebidas e petiscos deliciosos. Um lugar perfeito para relaxar e desfrutar de momentos agradáveis com amigos.</p>
+      <p class="activity-item-address">Av. Amazonas, 69 - Centro, Belo Horizonte</p>
+      <button class="add-favorite-button" onclick="addFavorite('butiquim 69 - Unidade I')">★</button>
+    </div>
+
+    <div class="activity-item">
+      <img class="activity-item-image" src="Ct Focus Praia.jpg" alt="Imagem da atividade">
+      <h2 class="activity-item-title">CT Focus Praia</h2>
+      <p class="activity-item-description">⚽️ Futevôlei e Futmesa 🎾 Beach Tennis 🍺 Festas e eventos 🍢 Bar e Espeteria ☕️ Lanchonete</p>
+      <p class="activity-item-address">R. Dom José Gaspar, 977 - Coração Eucarístico, Belo Horizonte</p>
+      <button class="add-favorite-button" onclick="addFavorite('CT Focus Praia')">★</button>
+    </div>
+
+    <div class="activity-item">
+      <img class="activity-item-image" src="Praça da Liberdade.webp" alt="Imagem da atividade">
+      <h2 class="activity-item-title">Praça da Liberdade</h2>
+      <p class="activity-item-description">O complexo paisagistico e arquitetônico da Praça da Liberdade é uma síntese dos estilos que marcam a história de Belo Horizonte.</p>
+      <p class="activity-item-address">Praça da Liberdade - Funcionários, Belo Horizonte</p>
+      <button class="add-favorite-button" onclick="addFavorite('Praça da Liberdade')">★</button>
+    </div>
+
+    <div class="activity-item">
+      <img class="activity-item-image" src="Museu das Minas e do Metal MM Gerdau.webp" alt="Imagem da atividade">
+      <h2 class="activity-item-title">Museu das Minas e do Metal MM Gerdau</h2>
+      <p class="activity-item-description">O MM Gerdau - Museu das Minas e do Metal faz parte do Circuito Cultural Praça da Liberdade, tendo sido inaugurado em 22 de março de 2010 com projeto arquitetônico de Paulo Mendes da Rocha e museográfico de Marcello Dantas. Está ambientado em dois segmentos: o Museu das Minas, no primeiro andar e segundo pavimento; e o Museu do Metal, no segundo andar e terceiro pavimento. Ao todo, são 18 salas.</p>
+      <p class="activity-item-address">Praça da Liberdade, 680 - Funcionários, Belo Horizonte</p>
+      <button class="add-favorite-button" onclick="addFavorite('Museu das Minas e do Metal MM Gerdau')">★</button>
+    </div>
+
+    <div class="activity-item">
+      <img class="activity-item-image" src="Centro Cultural Banco do Brasil de BH.webp" alt="Imagem da atividade">
+      <h2 class="activity-item-title">Centro Cultural Banco do Brasil de BH</h2>
+      <p class="activity-item-description">Centro cultural em bela construção da década de 1920 com exposições de arte, filmes, peças, café e livraria.</p>
+      <p class="activity-item-address">Praça da Liberdade, 450 - Funcionários, Belo Horizonte</p>
+      <button class="add-favorite-button" onclick="addFavorite('Centro Cultural Banco do Brasil de BH')">★</button>
+    </div>
+
+    <div class="activity-item">
+      <img class="activity-item-image" src="Espaço do Conhecimento UFMG.webp" alt="Imagem da atividade">
+      <h2 class="activity-item-title">Espaço do Conhecimento UFMG</h2>
+      <p class="activity-item-description">Planetário e terraço astronômico com telescópios, além de fachada digital e exposições sobre a humanidade.</p>
+      <p class="activity-item-address">Praça da Liberdade, 700 - Funcionários, Belo Horizonte</p>
+      <button class="add-favorite-button" onclick="addFavorite('Espaço do Conhecimento UFMG')">★</button>
+    </div>
+
+    <div class="activity-item">
+      <img class="activity-item-image" src="Mercado Central.jpg" alt="Imagem da atividade">
+      <h2 class="activity-item-title">Mercado Central</h2>
+      <p class="activity-item-description">Animado mercado indoor com alimentos, artesanato e souvenirs, além de bares e restaurantes informais.</p>
+      <p class="activity-item-address">Av. Augusto de Lima, 744 - Centro, Belo Horizonte</p>
+      <button class="add-favorite-button" onclick="addFavorite('Mercado Central')">★</button>
+    </div>
+
+    <div class="activity-item">
+      <img class="activity-item-image" src="Parque de Diversões Guanabara.jpg" alt="Imagem da atividade">
+      <h2 class="activity-item-title">Parque de Diversões Guanabara</h2>
+      <p class="activity-item-description">Parque de diversões agitado com atrações clássicas, incluindo carrinhos de bate-bate e roda gigante.</p>
+      <p class="activity-item-address">Av. Expedicionário Benvindo Belém de Lima, 15 - São Luiz, Belo Horizonte</p>
+      <button class="add-favorite-button" onclick="addFavorite('Parque de Diversões Guanabara')">★</button>
+    </div>
+
+    <div class="activity-item">
+      <img class="activity-item-image" src="Mirante do Mangabeiras.jpg" alt="Imagem da atividade">
+      <h2 class="activity-item-title">Mirante do Mangabeiras</h2>
+      <p class="activity-item-description">O Mirante das Mangabeiras é um logradouro do Bairro Mangabeiras, em Belo Horizonte, de onde se descortina um panorama de quase toda a cidade.</p>
+      <p class="activity-item-address">R. Pedro José Pardo, 1000 - Mangabeiras, Belo Horizonte</p>
+      <button class="add-favorite-button" onclick="addFavorite('Mirante do Mangabeiras')">★</button>
+    </div>
+
+    <div class="activity-item">
+      <img class="activity-item-image" src="Parque Municipal Américo Renné Giannetti.jpg" alt="Imagem da atividade">
+      <h2 class="activity-item-title">Parque Municipal Américo Renné Giannetti</h2>
+      <p class="activity-item-description">O Parque Municipal Américo Renné Giannetti, com 180.000 m² de área cercada e com guaritas em todas as entradas, é o principal parque de Belo Horizonte.</p>
+      <p class="activity-item-address">Av. Afonso Pena, 1377 - Centro, Belo Horizonte</p>
+      <button class="add-favorite-button" onclick="addFavorite('Parque Municipal Américo Renné Giannetti')">★</button>
+    </div>
+
+    <div class="activity-item">
+      <img class="activity-item-image" src="feira hippie.webp" alt="Imagem da atividade">
+      <h2 class="activity-item-title">Feira Hippie</h2>
+      <p class="activity-item-description">Feira de artesanato em Belo Horizonte.</p>
+      <p class="activity-item-address">Av. Afonso Pena - Centro, Belo Horizonte</p>
+      <button class="add-favorite-button" onclick="addFavorite('Feira Hippie')">★</button>
+    </div>
+
+    <div class="activity-item">
+      <img class="activity-item-image" src="Zoológico BH.jpeg" alt="Imagem da atividade">
+      <h2 class="activity-item-title">Zoobotânica de Belo Horizonte</h2>
+      <p class="activity-item-description">Zoológico com jardins aquáticos em estilo japonês, répteis, aves, anfíbios, mamíferos, borboletário e aquários</p>
+      <p class="activity-item-address">Av. Otacílio Negrão de Lima, 8000 - Pampulha, Belo Horizonte</p>
+      <button class="add-favorite-button" onclick="addFavorite('Zoobotânica de Belo Horizonte')">★</button>
+    </div>
+
+    <div class="activity-item">
+      <img class="activity-item-image" src="inhotim.jpg" alt="Imagem da atividade">
+      <h2 class="activity-item-title">Instituto Inhotim</h2>
+      <p class="activity-item-description">O Instituto Inhotim é a sede de um dos mais importantes acervos de arte contemporânea do Brasil e considerado o maior museu a céu aberto do mundo.</p>
+      <p class="activity-item-address"> Rua B, 20 Fazenda Inhotim, Brumadinho</p>
+      <button class="add-favorite-button" onclick="addFavorite('Instituto Inhotim')">★</button>
+    </div>
+
+    <div class="activity-item">
+      <img class="activity-item-image" src="hofbrauhaus.jpeg" alt="Imagem da atividade">
+      <h2 class="activity-item-title">Hofbräuhaus BH</h2>
+      <p class="activity-item-description">Cervejaria tranquila e animada com mesas ao ar livre, chope e pratos tradicionais da culinária bávara.</p>
+      <p class="activity-item-address">Av. do Contorno, 7613 - Lourdes, Belo Horizonte</p>
+      <button class="add-favorite-button" onclick="addFavorite('Hofbräuhaus BH')">★</button>
+    </div>
+
+    <div class="activity-item">
+      <img class="activity-item-image" src="Redentor Bar.jpg" alt="Imagem da atividade">
+      <h2 class="activity-item-title">Redentor Bar</h2>
+      <p class="activity-item-description">Restaurante/bar casual e cheio de estilo que serve pratos brasileiros em um espaço com varanda.</p>
+      <p class="activity-item-address">R. Fernandes Tourinho, 500 - Savassi, Belo Horizonte</p>
+      <button class="add-favorite-button" onclick="addFavorite('Redentor Bar')">★</button>
+    </div>
+
+    <div class="activity-item">
+      <img class="activity-item-image" src="Lagoa da Pampulha.webp" alt="Imagem da atividade">
+      <h2 class="activity-item-title">Lagoa da Pampulha</h2>
+      <p class="activity-item-description">Lagoa que abriga a Igreja de São Francisco, a Casa Kubitscheck (que preserva a memória do ex-presidente Juscelino), a Casa do Baile, o Museu de Arte Moderna e o Iate Clube.</p>
+      <p class="activity-item-address">Av. Otacílio Negrão de Lima - São Luiz, Belo Horizonte</p>
+      <button class="add-favorite-button" onclick="addFavorite('Lagoa da Pampulha')">★</button>
+    </div>
+
+    <div class="activity-item">
+      <img class="activity-item-image" src="esplanada.webp" alt="Imagem da atividade">
+      <h2 class="activity-item-title">Esplanada do Mineirão</h2>
+      <p class="activity-item-description">Área externa do estádio Mineirão, situada ao ar livre para andar de skate e bicicleta, local de shows e com vista para a Lagoa da Pampulha.</p>
+      <p class="activity-item-address">Av. Presidente Carlos Luz - São Luiz, Belo Horizonte</p>
+      <button class="add-favorite-button" onclick="addFavorite('Esplanada do Mineirão')">★</button>
+    </div>
+  </div>
+
+  <div class="back-arrow" onclick="window.location.href='atividades_fora_casa.html'">←</div>
+
+  <script>
+    function addFavorite(activityTitle) {
+      const favorites = JSON.parse(localStorage.getItem('favorites_externo')) || [];
+      const isDuplicate = favorites.some((favorite) => favorite.title === activityTitle);
+
+      if (!isDuplicate) {
+        const newFavorite = { title: activityTitle };
+        favorites.push(newFavorite);
+        localStorage.setItem('favorites_externo', JSON.stringify(favorites));
+        alert('Atividade adicionada aos favoritos!');
+      } else {
+        alert('Esta atividade já está nos favoritos!');
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

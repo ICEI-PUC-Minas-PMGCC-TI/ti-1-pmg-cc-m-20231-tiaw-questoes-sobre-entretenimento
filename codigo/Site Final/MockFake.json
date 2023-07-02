@@ -1,0 +1,29 @@
+[
+    {
+      "id": 1,
+      "nome": "João",
+      "sobrenome": "Silva",
+      "email": "joao.silva@mail.com",
+      "senha": "123456",
+      "data_nascimento": "1990-01-01",
+      "sexo": "masculino"
+    },
+    {
+      "id": 2,
+      "nome": "Maria",
+      "sobrenome": "Souza",
+      "email": "maria.souza@mail.com",
+      "senha": "abcdef",
+      "data_nascimento": "1995-05-05",
+      "sexo": "feminino"
+    },
+    {
+      "id": 3,
+      "nome": "Pedro",
+      "sobrenome": "Santos",
+      "email": "pedro.santos@mail.com",
+      "senha": "qwerty",
+      "data_nascimento": "1998-10-10",
+      "sexo": "masculino"
+    }
+  ]

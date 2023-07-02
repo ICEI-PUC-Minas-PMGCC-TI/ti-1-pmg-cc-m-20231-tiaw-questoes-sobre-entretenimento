@@ -1,0 +1,8 @@
+{
+    "interests": {
+      "selectedCategories": []
+    },
+    "selectInterest": "function(element, category) {\n  element.classList.toggle('selected');\n  updateSelectedCategories();\n}",
+    "updateSelectedCategories": "function() {\n  var selectedCategories = document.getElementsByClassName('selected');\n  interests.selectedCategories = Array.from(selectedCategories).map(function(category) {\n    return category.textContent.trim();\n  });\n}",
+    "submitInterests": "function() {\n  if (interests.selectedCategories.length >= 3) {\n    console.log(interests.selectedCategories);\n  } else {\n    alert('Selecione pelo menos 3 categorias antes de enviar.');\n  }\n}"
+  }

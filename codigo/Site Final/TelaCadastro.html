@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cadastro de Usuário</title>
+	<style>
+		html {
+			background-color: #E6F2F8;
+		}
+		body {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			min-height: 100vh;
+		}
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+		}
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+			background-color: white;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+			width: 70%;
+			max-width: 500px;
+		}
+		label {
+			font-size: 20px;
+			margin-top: 10px;
+		}
+		input, select {
+			padding: 10px;
+			font-size: 18px;
+			margin: 10px;
+			border-radius: 5px;
+			border: 1px solid gray;
+			width: 100%;
+			max-width: 100%;
+		}
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		input[type="submit"]:hover {
+			background-color: #45a049;
+		}
+
+		.back-arrow {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            font-size: 48px;
+            color: #000;
+            cursor: pointer;
+        }
+	</style>
+</head>
+<body>
+	<h1>Cadastro de Usuário</h1>
+	<form id="formulario">
+		<label for="nome">Nome:</label><br>
+		<input type="text" id="nome" name="nome" required><br>
+
+		<label for="sobrenome">Sobrenome:</label><br>
+		<input type="text" id="sobrenome" name="sobrenome" required><br>
+
+		<label for="email">Email:</label><br>
+		<input type="email" id="email" name="email" required><br>
+
+		<label for="senha">Crie uma Senha:</label><br>
+		<input type="password" id="senha" name="senha" required><br>
+
+		<label for="confirmar_senha">Confirme sua Senha:</label><br>
+		<input type="password" id="confirmar_senha" name="confirmar_senha" required><br>
+
+		<label for="data_nascimento">Data de Nascimento:</label><br>
+		<input type="date" id="data_nascimento" name="data_nascimento" required><br>
+
+		<label for="sexo">Sexo:</label><br>
+		<select id="sexo" name="sexo">
+			<option value="masculino">Masculino</option>
+			<option value="feminino">Feminino</option>
+			<option value="outro">Outro</option>
+		</select><br><br>
+
+		<input type="submit" value="Enviar">
+
+	</form>
+
+    <script>
+        const form = document.querySelector('#formulario');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const nome = document.querySelector('#nome').value;
+            const sobrenome = document.querySelector('#sobrenome').value;
+            const email = document.querySelector('#email').value;
+            const senha = document.querySelector('#senha').value;
+            const confirmarSenha = document.querySelector('#confirmar_senha').value;
+            const dataNascimento = document.querySelector('#data_nascimento').value;
+            const sexo = document.querySelector('#sexo').value;
+
+            if (senha !== confirmarSenha) {
+                alert('As senhas não coincidem!');
+                return;
+            }
+
+            const novoUsuario = {
+                nome,
+                sobrenome,
+                email,
+                senha,
+                data_nascimento: dataNascimento,
+                sexo
+            };
+
+            let usuariosJSON = localStorage.getItem('usuarios');
+            let usuarios = [];
+            if (usuariosJSON !== null) {
+                usuarios = JSON.parse(usuariosJSON).usuarios;
+            }
+
+            usuarios.push(novoUsuario);
+
+            usuariosJSON = JSON.stringify({ usuarios });
+            localStorage.setItem('usuarios', usuariosJSON);
+
+            window.location.href = "CadastroDeInteresses.html";
+        });
+    </script>
+
+    <div class="back-arrow" onclick="window.location.href='index.html'">←</div>
+</body>
+</html>
+
